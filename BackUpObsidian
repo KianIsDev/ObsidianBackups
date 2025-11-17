@@ -8,5 +8,5 @@ git push
 while true
 do
     echo "Hello"
-    sleep 300
+    sleep 30
 done
