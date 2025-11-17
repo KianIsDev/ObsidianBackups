@@ -31,4 +31,5 @@ if [ $st -ne "-1" ]; then
 else
 	gnome-terminal -x bash -c "echo -e \"\e[32mClosing Backup-Tool\e[0m dont wait for this window to close... Just close it already!\"; sleep 5"
 fi
+
 echo "-1" > running.running
