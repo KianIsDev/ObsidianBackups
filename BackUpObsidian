@@ -7,7 +7,7 @@ cd ~/Documents/Obsidian/ObsidianBackups
 # /usr/bin/flatpak run md.obsidian.Obsidian
 
 rt=$(date '+%d');
-gnome-terminal -x bash -c "echo \"$rt\" > running.txt; /usr/bin/flatpak run md.obsidian.Obsidian;cd ~/Documents/Obsidian/ObsidianBackups; echo \"-1\" > running.txt; exec bash"
+gnome-terminal -x bash -c "echo \"$rt\" > running.txt; /usr/bin/flatpak run md.obsidian.Obsidian;cd ~/Documents/Obsidian/ObsidianBackups; echo \"-1\" > running.txt"
 
 st=$(cat running.txt)
 while [ $st -eq $rt ]
@@ -25,6 +25,7 @@ do
 	sleep 5
 done
 
-if [ $st -eq "-1" ]; then
+if [ $st -ne "-1" ]; then
 gnome-terminal -x bash -c "echo \"DAILY SESSION EXPIRED! Close Obsidian and re-open the backup program to start a new session\"; exec bash"
 fi
+echo "-1" > running.txt
