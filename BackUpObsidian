@@ -1,5 +1,5 @@
 #!/bin/bash
 git pull
 git add -A
-git commit -A -M "Backup Y"
+git commit -a -m "Backup Y"
 git push
