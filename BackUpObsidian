@@ -12,7 +12,7 @@ do
     git add -A
     dt=$(date '+%d/%m/%Y %H:%M:%S');
     git commit -a -m "Backup $dt"
-    git push
-    echo "Backup $dt" >> gnome-terminal
+    git push 2>> BackupLog.txt
+    echo "Backup $dt" >> BackupLog.txt
     sleep 5
 done
