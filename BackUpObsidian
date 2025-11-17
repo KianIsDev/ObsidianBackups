@@ -6,7 +6,8 @@ cd ~/Documents/Obsidian/ObsidianBackups
 # /usr/bin/flatpak run --branch=stable --arch=x86_64 --command=obsidian.sh --file-forwarding md.obsidian.Obsidian @@u %U @@
 # /usr/bin/flatpak run md.obsidian.Obsidian
 
-gnome-terminal -x bash -c "/usr/bin/flatpak run md.obsidian.Obsidian;cd ~/Documents/Obsidian/ObsidianBackups; dt=$(date '+%d/%m/%Y %H:%M:%S'); echo \"r $dt\" > running.txt; exec bash"
+rt=$(date '+%d/%m/%Y %H:%M:%S');
+gnome-terminal -x bash -c "/usr/bin/flatpak run md.obsidian.Obsidian;cd ~/Documents/Obsidian/ObsidianBackups; echo \"r $rt\" > running.txt; exec bash"
 
 while true
 do
