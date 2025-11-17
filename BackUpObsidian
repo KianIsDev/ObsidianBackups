@@ -26,7 +26,9 @@ do
 	sleep 10
 done
 
-if [ $st -eq "-1" ]; then
-gnome-terminal -x bash -c "echo -e \"\e[31mDAILY SESSION EXPIRED!\e[0m Close Obsidian and re-open the backup program to start a new session\"; exec bash"
+if [ $st -ne "-1" ]; then
+	gnome-terminal -x bash -c "echo -e \"\e[31mDAILY SESSION EXPIRED!\e[0m Close Obsidian and re-open the backup program to start a new session\"; exec bash"
+else
+	gnome-terminal -x bash -c "echo -e \"\e[32mClosing Backup-Tool\e[0m dont wait for this window to close... Just close it already!\"; sleep 5"
 fi
 echo "-1" > running.running
