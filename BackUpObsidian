@@ -15,6 +15,7 @@ do
 	git pull
 	git add .
     
+    rt=$(date '+%d');
 	dt=$(date '+%d/%m/%Y %H:%M:%S');
 	git commit -a -m "Backup $dt"
 	git push
