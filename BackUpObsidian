@@ -7,6 +7,7 @@ do
     git add -A
     git commit -a -m "Backup Y"
     git push
-    echo "Hello"
+    dt=$(date '+%d/%m/%Y');
+    echo "$dt"
     sleep 5
 done
