@@ -1,7 +1,8 @@
 #!/bin/bash
 cd ~/Documents/Obsidian/ObsidianBackups
 
-gnome-terminal
+# gnome-terminal
+/usr/bin/flatpak run --branch=stable --arch=x86_64 --command=obsidian.sh --file-forwarding md.obsidian.Obsidian @@u %U @@
 
 while true
 do
