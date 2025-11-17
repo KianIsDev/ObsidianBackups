@@ -16,11 +16,11 @@ then
 	echo $ob > obsidian.path
 fi
 
-echo $ob
+echo "Opening $ob";
 
 
 rt=$(date '+%d');
-gnome-terminal -x bash -c "echo \"$rt\" > running.running; /usr/bin/flatpak run --branch=stable --arch=x86_64 --command=obsidian.sh --file-forwarding md.obsidian.Obsidian @@u %U @@; echo \"-1\" > running.running"
+gnome-terminal -x bash -c "echo \"$rt\" > running.running; $ob; echo \"-1\" > running.running"
 
 st=$(cat running.running)
 while [ $st -eq $rt ]
