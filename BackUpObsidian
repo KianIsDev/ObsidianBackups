@@ -8,9 +8,9 @@ cd ~/Documents/Obsidian/ObsidianBackups
 
 
 rt=$(date '+%d');
-gnome-terminal -x bash -c "echo \"$rt\" > running.txt; /usr/bin/flatpak run --branch=stable --arch=x86_64 --command=obsidian.sh --file-forwarding md.obsidian.Obsidian @@u %U @@; echo \"-1\" > running.txt"
+gnome-terminal -x bash -c "echo \"$rt\" > running.running; /usr/bin/flatpak run --branch=stable --arch=x86_64 --command=obsidian.sh --file-forwarding md.obsidian.Obsidian @@u %U @@; echo \"-1\" > running.running"
 
-st=$(cat running.txt)
+st=$(cat running.running)
 while [ $st -eq $rt ]
 do
 	git pull
@@ -20,8 +20,8 @@ do
 	dt=$(date '+%d/%m/%Y %H:%M:%S');
 	git commit -a -m "Backup $dt"
 	git push
-	echo "Backup $dt" >> BackupLog.txt
-	st=$(cat running.txt)
+	echo "Backup $dt" >> BackupLog.running
+	st=$(cat running.running)
 	echo -e "\e[32mRunning SessionID\e[0m[$st] \e[32mExpected SessionID\e[0m[$rt]"
 	sleep 10
 done
@@ -29,4 +29,4 @@ done
 if [ $st -eq "-1" ]; then
 gnome-terminal -x bash -c "echo -e \"\e[31mDAILY SESSION EXPIRED!\e[0m Close Obsidian and re-open the backup program to start a new session\"; exec bash"
 fi
-echo "-1" > running.txt
+echo "-1" > running.running
