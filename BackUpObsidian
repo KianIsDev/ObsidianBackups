@@ -5,12 +5,12 @@ cd ~/Documents/Obsidian/ObsidianBackups
 # /usr/bin/flatpak run --branch=stable --arch=x86_64 --command=obsidian.sh --file-forwarding md.obsidian.Obsidian @@u %U @@
 # /usr/bin/flatpak run --branch=stable --arch=x86_64 --command=obsidian.sh --file-forwarding md.obsidian.Obsidian @@u %U @@
 # /usr/bin/flatpak run md.obsidian.Obsidian
-echo "" >> obsidian.path
+echo " " >> obsidian.path
 
 obsid=$(cat obsidian.path);
 
-if [ $obsid -eq "" ]; then
-	echo "where is it?"
+if [ $obsid -eq " " ]; then
+	echo "where is it???????????????????????????????"
 fi
 
 
