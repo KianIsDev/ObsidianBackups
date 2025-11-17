@@ -22,7 +22,7 @@ do
 	git push
 	echo "Backup $dt" >> BackupLog.txt
 	st=$(cat running.txt)
-	echo "\e[32mRed text\e[0m $st = $rt"
+	echo -e "\e[32mRed text\e[0m $st = $rt"
 	sleep 5
 done
 
