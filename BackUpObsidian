@@ -13,6 +13,6 @@ do
     dt=$(date '+%d/%m/%Y %H:%M:%S');
     git commit -a -m "Backup $dt"
     git push
-    echo "Backup $dt" >> myDir.txt
+    echo "Backup $dt" >> gnome-terminal
     sleep 5
 done
