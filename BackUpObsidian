@@ -25,5 +25,5 @@ do
 	sleep 5
 done
 
-gnome-terminal -x bash -c "echo \"DAILY SESSION EXPIRED! Close Obsidian and reopen the backup program to start a new session\""
+gnome-terminal -x bash -c "echo \"DAILY SESSION EXPIRED! Close Obsidian and reopen the backup program to start a new session\"; exec bash"
 
