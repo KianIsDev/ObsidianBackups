@@ -6,7 +6,7 @@ cd ~/Documents/Obsidian/ObsidianBackups
 # /usr/bin/flatpak run --branch=stable --arch=x86_64 --command=obsidian.sh --file-forwarding md.obsidian.Obsidian @@u %U @@
 # /usr/bin/flatpak run md.obsidian.Obsidian
 
-gnome-terminal -- bash -c "echo \"Hello World\""
+gnome-terminal -x bash -c "echo \"Hello World\"; exec bash"
 
 while true
 do
@@ -19,3 +19,4 @@ do
 	echo "Backup $dt" >> BackupLog.txt
 	sleep 5
 done
+
