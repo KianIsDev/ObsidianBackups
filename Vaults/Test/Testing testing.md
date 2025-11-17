@@ -6,3 +6,5 @@ do you read me?
 Sir, yes sir!
 
 > Good, now status report!
+
+Nothing new, sir!
