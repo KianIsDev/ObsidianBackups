@@ -1,6 +1,8 @@
 #!/bin/bash
 cd ~/Documents/Obsidian/ObsidianBackups
 
+gnome-terminal
+
 while true
 do
     git pull
