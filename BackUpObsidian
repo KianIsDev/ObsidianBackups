@@ -5,9 +5,9 @@ while true
 do
     git pull
     git add -A
-    git commit -a -m "Backup Y"
-    git push
     dt=$(date '+%d/%m/%Y %H:%M:%S');
-    echo "backup $dt"
+    git commit -a -m "Backup $dt"
+    git push
+    echo "Backup $dt"
     sleep 5
 done
