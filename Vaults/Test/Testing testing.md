@@ -8,3 +8,4 @@ Sir, yes sir!
 > Good, now status report!
 
 Nothing new, sir!
+Really, its dead quiet here!
