@@ -21,7 +21,7 @@ do
 	git push
 	echo "Backup $dt" >> BackupLog.txt
 	st=$(cat running.txt)
-	echo "tadaaa $st"
+	echo "tadaaa $st = $rt"
 	sleep 5
 done
 
