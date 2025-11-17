@@ -1,5 +1,12 @@
 #!/bin/bash
+cd ~/Documents/Obsidian/ObsidianBackups
 git pull
 git add -A
 git commit -a -m "Backup Y"
 git push
+
+while true
+do
+    echo "Hello"
+    sleep 300
+done
