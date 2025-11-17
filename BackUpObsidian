@@ -18,7 +18,8 @@ do
 	git commit -a -m "Backup $dt"
 	git push
 	echo "Backup $dt" >> BackupLog.txt
-	% cat running.txt
+	st=(cat running.txt)
+	echo "tadaaa $st"
 	sleep 5
 done
 
