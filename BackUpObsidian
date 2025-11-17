@@ -9,6 +9,7 @@ cd ~/Documents/Obsidian/ObsidianBackups
 rt=$(date '+%d');
 gnome-terminal -x bash -c "echo \"$rt\" > running.txt; /usr/bin/flatpak run md.obsidian.Obsidian;cd ~/Documents/Obsidian/ObsidianBackups; echo \"-1\" > running.txt; exec bash"
 
+st=$(cat running.txt)
 while true
 do
 	git pull
