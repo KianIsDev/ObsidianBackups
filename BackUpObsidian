@@ -23,7 +23,7 @@ do
 	echo "Backup $dt" >> BackupLog.txt
 	st=$(cat running.txt)
 	echo -e "\e[32mRunning SessionID\e[0m[$st] \e[32mExpected SessionID\e[0m[$rt]"
-	sleep 5
+	sleep 10
 done
 
 if [ $st -eq "-1" ]; then
