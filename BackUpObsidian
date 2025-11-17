@@ -6,6 +6,7 @@ cd ~/Documents/Obsidian/ObsidianBackups
 # /usr/bin/flatpak run --branch=stable --arch=x86_64 --command=obsidian.sh --file-forwarding md.obsidian.Obsidian @@u %U @@
 # /usr/bin/flatpak run md.obsidian.Obsidian
 
+
 rt=$(date '+%d');
 gnome-terminal -x bash -c "echo \"$rt\" > running.txt; /usr/bin/flatpak run --branch=stable --arch=x86_64 --command=obsidian.sh --file-forwarding md.obsidian.Obsidian @@u %U @@; echo \"-1\" > running.txt"
 
@@ -21,7 +22,7 @@ do
 	git push
 	echo "Backup $dt" >> BackupLog.txt
 	st=$(cat running.txt)
-	echo "tadaaa $st = $rt"
+	echo "\e[32mRed text\e[0m $st = $rt"
 	sleep 5
 done
 
