@@ -7,7 +7,7 @@ cd ~/Documents/Obsidian/ObsidianBackups
 # /usr/bin/flatpak run md.obsidian.Obsidian
 
 rt=$(date '+%d');
-gnome-terminal -x bash -c "/usr/bin/flatpak run md.obsidian.Obsidian;cd ~/Documents/Obsidian/ObsidianBackups; echo \"r $rt\" > running.txt; exec bash"
+gnome-terminal -x bash -c "echo \"$rt\" > running.txt; /usr/bin/flatpak run md.obsidian.Obsidian;cd ~/Documents/Obsidian/ObsidianBackups; exec bash"
 
 while true
 do
