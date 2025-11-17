@@ -6,7 +6,7 @@ cd ~/Documents/Obsidian/ObsidianBackups
 # /usr/bin/flatpak run --branch=stable --arch=x86_64 --command=obsidian.sh --file-forwarding md.obsidian.Obsidian @@u %U @@
 # /usr/bin/flatpak run md.obsidian.Obsidian
 
-gnome-terminal -x bash -c "/usr/bin/flatpak run md.obsidian.Obsidian;cd ~/Documents/Obsidian/ObsidianBackups; echo hellohello; exec bash"
+gnome-terminal -x bash -c "/usr/bin/flatpak run md.obsidian.Obsidian;cd ~/Documents/Obsidian/ObsidianBackups; echo hellohello > hello.txt; exec bash"
 
 while true
 do
