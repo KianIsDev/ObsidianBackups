@@ -8,7 +8,7 @@ cd ~/Documents/Obsidian/ObsidianBackups
 
 while true
 do
-	git add -A
+	git add .
 	git pull
     
 	dt=$(date '+%d/%m/%Y %H:%M:%S');
