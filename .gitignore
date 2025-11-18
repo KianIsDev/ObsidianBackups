@@ -1,2 +1,4 @@
 .obsidian/*
 .trash/*
+!/*.running
+!/*.path
