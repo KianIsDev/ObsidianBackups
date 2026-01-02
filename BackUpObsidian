@@ -64,21 +64,26 @@ echo "${currentId}" > running.running;
 bootObsidianCommand="echo \"$currentId\" > running.running; $obsidianRunCommand; echo \"-1\" > running.running;";
 
 
-if [[ $ableToOpenExternalTerminal == "1" ]];
+if [[ $obsidianRunCommand == "0" ]];
 then
-    x-terminal-emulator -e "bash -c '${bootObsidianCommand}'" &
-    echo ""
-    echo "popup terminal opened succesfully!"
+    echo "You are now in manual upload mode.";
 else
-    echo "---------------------"
-    echo -e "\e[33mUnable to open new terminal\e[0m... Obsidian will therefor be running from this terminal. Unfortunately that means no dynamic uploading. All changes will be uploadet once obsidian has closed."
-    echo ""
-    echo -e "\e[31mREMEMBER TO CLOSE OBSIDIAN BEFORE TURNNG OFF THE PC!!!\e[0m"
-    echo "---------------------"
+    if [[ $ableToOpenExternalTerminal == "1" ]];
+    then
+        x-terminal-emulator -e "bash -c '${bootObsidianCommand}'" &
+        echo ""
+        echo "popup terminal opened succesfully!"
+    else
+        echo "---------------------"
+        echo -e "\e[33mUnable to open new terminal\e[0m... Obsidian will therefor be running from this terminal. Unfortunately that means no dynamic uploading. All changes will be uploadet once obsidian has closed."
+        echo ""
+        echo -e "\e[31mREMEMBER TO CLOSE OBSIDIAN BEFORE TURNNG OFF THE PC!!!\e[0m"
+        echo "---------------------"
 
-    bash -c "${bootObsidianCommand}";
+        bash -c "${bootObsidianCommand}";
 
-    echo ""
+        echo ""
+    fi
 fi
 
 
