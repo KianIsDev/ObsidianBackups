@@ -57,8 +57,9 @@ currentId=$(date '+%d');
 echo "${currentId}" > running.running;
 
 bootObsidianCommand="echo \"$currentId\" > running.running; $obsidianRunCommand; echo \"-1\" > running.running";
-x-terminal-emulator -e "bash -c '${bootObsidianCommand}'" &
+# x-terminal-emulator -e "bash -c '${bootObsidianCommand}'" &
 
+bash -c "${obsidianRunCommand}";
 
 runningId=$(cat running.running)
 while [[ $runningId == $currentId ]]
