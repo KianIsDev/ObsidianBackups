@@ -10,30 +10,31 @@ obsidianRunCommand=$(cat obsidian.path);
 
 ableToOpenExternalTerminal="1";
 
+promptLocateObsidian="echo -e \"\e[31mNo Obsidian Command Specified!\e[0m \"; echo \"\"; echo -e \"(\e[32mOn Linux\e[0m) Right-click the Obsidian icon in the super-key menue > Properties > Copy the \\\"Command\\\" field.\"; echo\"\";  echo -e \"(\e[33mOn A Virtual Machine\e[0m) Or if you dont want this tool to automatically boot up obsidian when it starts, simply write \\\"0\\\" \"; echo\"\";";
+
 if [[ $obsidianRunCommand == "" ]];
 then
     
     echo "opening new terminal"
 
-    if x-terminal-emulator -e "bash -c 'echo -e \"\e[31mNo Obsidian path!\e[0m paste the executable path.\";	echo \"(On Linux) Right-click the Obsidian icon in the super-key menue > Properties > Copy the \\\"Command\\\" field.\"; echo \"(On A Virtual Machine) Or if you dont want this tool to automatically boot up obsidian when it starts, simply write \\\"0\\\"\"\"; read -p \"What is the executable command? \" ORC; echo \$ORC > obsidian.path;'"
+    if x-terminal-emulator -e "bash -c '${promptLocateObsidian} read -p \"What is the executable command? \" ORC; echo \$ORC > obsidian.path;'"
     then
         # The popup window succesfully showed up!
         echo "popup terminal succesfully closed!"
 
     else
         # No support for opening new terminals
-        echo -e "\e[31mUnable to open new terminal\e[0m"
+        echo -e "\e[33mUnable to open new terminal\e[0m... Continuing in this terminal"
         ableToOpenExternalTerminal="0";
     fi
     
 
     if [[ $ableToOpenExternalTerminal -ne "1" ]];
     then
-        echo "..."
-        echo -e "\e[31mNo Obsidian path!\e[0m paste the executable path.";
-        
-        echo -e "\e[33mPlease note:\e[0m if you do not want this tool to automatically boot up obsidian when it starts, simply write \"0\" in this terminal. (This is especially useful for users of WSL or simular virtual machines)"
-        
+        echo ""
+        echo "---------------------"
+        bash -c "${promptLocateObsidian}";
+        echo "---------------------"
 
         read -p "What is the executable command? " ORC;
         echo $ORC > obsidian.path;
@@ -53,7 +54,11 @@ echo "Opening $obsidianRunCommand";
 echo "";
 
 currentId=$(date '+%d');
-gnome-terminal -- bash -c "echo \"$currentId\" > running.running; $obsidianRunCommand; echo \"-1\" > running.running"
+echo "${currentId}" > running.running;
+
+bootObsidianCommand="echo \"$currentId\" > running.running; $obsidianRunCommand; echo \"-1\" > running.running";
+x-terminal-emulator -e "bash -c '${bootObsidianCommand}'" &
+
 
 runningId=$(cat running.running)
 while [[ $runningId == $currentId ]]
