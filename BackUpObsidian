@@ -44,11 +44,11 @@ do
 	echo -e "\e[32mRunning SessionID\e[0m[$runningId] \e[32mExpected SessionID\e[0m[$currentId]"
 	sleep 20
 
-    echo "3"
+    printf "3 "
     sleep 1
-    printf "2"
+    printf "2 "
     sleep 1
-    printf "1"
+    echo "1"
     sleep 1
     
 done
