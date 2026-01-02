@@ -93,20 +93,7 @@ bootObsidianCommand="echo \"$currentId\" > running.running; $obsidianRunCommand;
 
 if [[ $obsidianRunCommand == "0" ]];
 then
-    echo "You are now in independant upload mode. This tool will still upload changes to github in the background, but it wont stop again, when obsidian is closed";
-
-    closeMe="0";
-
-    while [[ $closeMe != "1" ]]
-    do
-        sleep 1;
-        uploadToGit;
-        echo "";
-        
-        read -t 10 "hello world " closeMe;
-
-    done
-
+    echo "You are now in manual upload mode.";
 else
     if [[ $ableToOpenExternalTerminal == "1" ]];
     then
