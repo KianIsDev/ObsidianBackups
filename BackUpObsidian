@@ -58,7 +58,7 @@ echo "${currentId}" > running.running;
 
 bootObsidianCommand="echo \"$currentId\" > running.running; $obsidianRunCommand; echo \"-1\" > running.running;";
 
-if x-terminal-emulator -e "bash -c 'echo \"...\"'" &
+if x-terminal-emulator -e "bash -c 'echo \"...\"'"
 then
     x-terminal-emulator -e "bash -c '${bootObsidianCommand}'" &
     echo "popup terminal opened succesfully!"
