@@ -1,7 +1,7 @@
 cool
 pretty cool yeeah
 
-he guys
+hi guys
 
 very nice
 
@@ -12,4 +12,4 @@ are we done fucking around now?
 
 i think we are :DDD
 
-good job
+good job everyone!
