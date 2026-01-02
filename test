@@ -1,0 +1,5 @@
+#!/bin/bash
+
+echo hello
+
+x-terminal-emulator -e "bash -c 'echo -e \"\e[31mNo Obsidian path!\e[0m paste the executable path.\";	echo \"(On Linux) Right-click the Obsidian icon in the super-key menue > Properties > Copy the \\\"Command\\\" field.\"; read -p \"What is the executable command? \" ORC; echo \$ORC > obsidian.path;'"

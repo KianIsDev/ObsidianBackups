@@ -11,11 +11,14 @@ obsidianRunCommand=$(cat obsidian.path);
 
 if [[ $obsidianRunCommand == "" ]];
 then
-    if gnome-terminal -- bash -c "echo -e \"\e[31mNo Obsidian path!\e[0m paste the executable path.\";	echo \"(On Linux) Right-click the Obsidian icon in the super-key menue > Properties > Copy the \\\"Command\\\" field.\"; read -p \"What is the executable command? \" ORC; echo \$ORC > obsidian.path;";
+    if x-terminal-emulator -e "bash -c 'echo -e \"\e[31mNo Obsidian path!\e[0m paste the executable path.\";	echo \"(On Linux) Right-click the Obsidian icon in the super-key menue > Properties > Copy the \\\"Command\\\" field.\"; read -p \"What is the executable command? \" ORC; echo \$ORC > obsidian.path;'"
     then
-        echo "Command Succeeded!"
+        # The popup window succesfully showed up!
+        echo "opening new window"
+
     else
-        echo "Command Failed! :<"
+        # No support for gnome-terminal
+        echo "unable to open new terminal"
     fi
     
 
