@@ -160,7 +160,7 @@ fi
 
 
 if [[ $runningId != "1" ]]; then
-    if [[ $ableToOpenExternalTerminal == "-1" ]];
+    if [[ $ableToOpenExternalTerminal == "1" ]];
     then
     	gnome-terminal -- bash -c "echo -e \"\e[31mDAILY SESSION EXPIRED!\e[0m Close Obsidian and re-open the backup program to start a new session\"; exec bash"
     else
