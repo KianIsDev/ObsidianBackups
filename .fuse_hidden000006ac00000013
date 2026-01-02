@@ -104,7 +104,6 @@ then
     do
         echo "Write \"1\" when you no longer need to back up your obsidian files:"
         read -t 30 closeMe;
-        echo "";
         echo -e "\e[32mUploading to git\e[0m next upload in 30 seconds...";
         uploadToGit;
         echo "";
