@@ -116,42 +116,46 @@ else
         x-terminal-emulator -e "bash -c '${bootObsidianCommand}'" &
         echo ""
         echo "popup terminal opened succesfully!"
+        
+        runningId=$(cat running.running)
+        while [[ $runningId == $currentId ]]
+        do
+            uploadToGit;
+	        runningId=$(cat running.running)
+            currentId=$(date '+%d');
+	        echo -e "\e[32mRunning SessionID\e[0m[$runningId] \e[32mExpected SessionID\e[0m[$currentId]"
+
+            if [[ $runningId -ne "-1" ]];
+            then
+            	sleep 20
+            fi
+
+            printf "3 "
+            sleep 1
+            printf "2 "
+            sleep 1
+            echo "1"
+            sleep 1
+            
+        done
+
     else
+        uploadToGit;
+
         echo "---------------------"
         echo -e "\e[33mUnable to open new terminal\e[0m... Obsidian will therefor be running from this terminal. Unfortunately that means no dynamic uploading. All changes will be uploadet once obsidian has closed."
         echo ""
         echo -e "\e[31mREMEMBER TO CLOSE OBSIDIAN BEFORE TURNNG OFF THE PC!!!\e[0m"
         echo "---------------------"
+        
+        sleep 2;        
 
         bash -c "${bootObsidianCommand}";
+        uploadToGit;
 
         echo ""
     fi
 fi
-
-
-runningId=$(cat running.running)
-while [[ $runningId == $currentId ]]
-do
-    uploadToGit;
-	runningId=$(cat running.running)
-    currentId=$(date '+%d');
-	echo -e "\e[32mRunning SessionID\e[0m[$runningId] \e[32mExpected SessionID\e[0m[$currentId]"
-
-    if [[ $runningId -ne "-1" ]];
-    then
-    	sleep 20
-    fi
-
-    printf "3 "
-    sleep 1
-    printf "2 "
-    sleep 1
-    echo "1"
-    sleep 1
-    
-done
-
 
 
 if [[ $runningId != "-1" ]]; then
