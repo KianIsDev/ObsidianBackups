@@ -1,5 +1,9 @@
 #!/bin/bash
 
+echo ""
+echo "---------------------"
+echo "WELCOME"
+
 # gnome-terminal
 # /usr/bin/flatpak run --branch=stable --arch=x86_64 --command=obsidian.sh --file-forwarding md.obsidian.Obsidian @@u %U @@
 # /usr/bin/flatpak run --branch=stable --arch=x86_64 --command=obsidian.sh --file-forwarding md.obsidian.Obsidian @@u %U @@
@@ -14,7 +18,7 @@ if x-terminal-emulator -e "bash -c 'echo \"...\"'"
 then
     ableToOpenExternalTerminal="1"
 else
-    ableToOpenExternalTerminal="0"
+    ableToOpenExternalTerminal="1"
 fi
 
 
