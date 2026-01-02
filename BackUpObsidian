@@ -109,6 +109,7 @@ then
         uploadToGit;
         echo "";
     done
+    runningId="-1";
 
 else
     if [[ $ableToOpenExternalTerminal == "1" ]];
