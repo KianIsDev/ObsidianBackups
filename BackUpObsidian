@@ -37,7 +37,7 @@ then
     fi
 
 
-    while [[ $obsidianRunCommand -eq "" ]]
+    while [[ $obsidianRunCommand == "" ]]
     do
         echo "reading user input..."
         sleep 1
