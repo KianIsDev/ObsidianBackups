@@ -153,7 +153,7 @@ else
 
         bash -c "${bootObsidianCommand}";
         uploadToGit;
-
+        runningId="-1";
         echo ""
     fi
 fi
