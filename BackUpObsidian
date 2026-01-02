@@ -102,8 +102,9 @@ then
         sleep 1;
         uploadToGit;
         echo "";
+        echo "say when!"
         
-        read -t 10 "hello world " closeMe;
+        read -t 10 closeMe;
 
     done
 
