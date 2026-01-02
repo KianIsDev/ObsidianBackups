@@ -2,3 +2,5 @@
 .trash/*
 !/*.running
 !/*.path
+*.running
+*.path
