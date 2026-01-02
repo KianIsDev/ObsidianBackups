@@ -160,9 +160,23 @@ fi
 
 
 if [[ $runningId != "-1" ]]; then
-	gnome-terminal -- bash -c "echo -e \"\e[31mDAILY SESSION EXPIRED!\e[0m Close Obsidian and re-open the backup program to start a new session\"; exec bash"
+    if [[ $ableToOpenExternalTerminal == "1" ]];
+    then
+    	gnome-terminal -- bash -c "echo -e \"\e[31mDAILY SESSION EXPIRED!\e[0m Close Obsidian and re-open the backup program to start a new session\"; exec bash"
+    else
+        echo ""
+        echo "---------------------"
+        echo -e "\e[31mDAILY SESSION EXPIRED!\e[0m Close Obsidian and re-open the backup program to start a new session";
+
+    fi
+
 else
-	gnome-terminal -- bash -c "echo -e \"\e[32mClosing Backup-Tool\e[0m dont wait for this window to close... Just close it already! \"; read -t 5;"
+    if [[ $ableToOpenExternalTerminal == "1" ]];
+    then
+        gnome-terminal -- bash -c "echo -e \"\e[32mClosing Backup-Tool\e[0m dont wait for this window to close... Just close it already! \"; read -t 5;"
+    else
+        echo -e "\e[32mClosing Backup-Tool\e[0m"
+    fi
 fi
 
 read -p "Press [enter] to close..."
