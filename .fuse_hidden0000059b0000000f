@@ -61,7 +61,6 @@ bootObsidianCommand="echo \"$currentId\" > running.running; $obsidianRunCommand;
 if x-terminal-emulator -e "bash -c 'echo \"...\"'"
 then
     x-terminal-emulator -e "bash -c '${bootObsidianCommand}'" &
-    echo "";
     echo "popup terminal opened succesfully!"
 else
     ableToOpenExternalTerminal="0";
