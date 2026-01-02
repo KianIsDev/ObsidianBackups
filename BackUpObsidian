@@ -11,7 +11,14 @@ obsidianRunCommand=$(cat obsidian.path);
 
 if [[ $obsidianRunCommand == "" ]];
 then
-    gnome-terminal -- bash -c "echo -e \"\e[31mNo Obsidian path!\e[0m paste the executable path.\";	echo \"(On Linux) Right-click the Obsidian icon in the super-key menue > Properties > Copy the \\\"Command\\\" field.\"; read -p \"What is the executable command? \" ORC; echo \$ORC > obsidian.path;";
+    if gnome-terminal -- bash -c "echo -e \"\e[31mNo Obsidian path!\e[0m paste the executable path.\";	echo \"(On Linux) Right-click the Obsidian icon in the super-key menue > Properties > Copy the \\\"Command\\\" field.\"; read -p \"What is the executable command? \" ORC; echo \$ORC > obsidian.path;";
+    then
+        echo "Command Succeeded!"
+    else
+        echo "Command Failed! :<"
+    fi
+    
+
 
     while [$obsidianRunCommand -eq ""]
     do
