@@ -30,7 +30,9 @@ then
     if [[ $ableToOpenExternalTerminal -ne "1" ]];
     then
         echo "..."
-        echo -e "\e[31mNo Obsidian path!\e[0m paste the executable path.";
+        echo -e "\e[30mNo Obsidian path!\e[0m paste the executable path.";
+
+        
 
         read -p "What is the executable command? " ORC;
         echo $ORC > obsidian.path;
