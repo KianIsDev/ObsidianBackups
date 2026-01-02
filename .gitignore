@@ -4,3 +4,4 @@
 !/*.path
 *.running
 *.path
+**/.obsidian/
