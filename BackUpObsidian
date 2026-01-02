@@ -78,7 +78,7 @@ do
 	git push
 	echo "Backup $dateString" >> BackupLog.running
 	runningId=$(cat running.running)
-	echo -e "\e[30mRunning SessionID\e[0m[$runningId] \e[32mExpected SessionID\e[0m[$currentId]"
+	echo -e "\e[33mRunning SessionID\e[0m[$runningId] \e[32mExpected SessionID\e[0m[$currentId]"
 
     if [[ $runningId -ne "-1" ]];
     then
