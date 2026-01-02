@@ -30,13 +30,22 @@ runningId=$(cat running.running)
 while [ $runningId -eq $currentId ]
 do
     echo "Backing up obsidian at: ${PWD}"
+
+    echo "(ADD)"
+
 	git add .
     
+    echo "(COMMIT)"
+
     currentId=$(date '+%d');
 	dateString=$(date '+%d/%m/%Y %H:%M:%S');
 	git commit -a -m "Backup $dateString"
 
+    echo "(PULL)"
+
     git pull
+
+    echo "(PUSH)"
 
 	git push
 	echo "Backup $dateString" >> BackupLog.running
