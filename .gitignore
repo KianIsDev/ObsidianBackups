@@ -5,3 +5,4 @@
 *.running
 *.path
 **/.obsidian/
+.fuse_hidden*
