@@ -58,7 +58,7 @@ echo "${currentId}" > running.running;
 
 bootObsidianCommand="echo \"$currentId\" > running.running; $obsidianRunCommand; echo \"-1\" > running.running;";
 
-if x-terminal-emulator -e "bash -c '${bootObsidianCommand} echo \"closing window\";'" &
+if x-terminal-emulator -e "bash -c '${bootObsidianCommand} read -p \"Press [enter] to close...\";'" &
 then
     echo "popup terminal succesfully closed!"
 else
