@@ -56,9 +56,9 @@ echo "";
 currentId=$(date '+%d');
 echo "${currentId}" > running.running;
 
-bootObsidianCommand="echo \"$currentId\" > running.running; $obsidianRunCommand; echo \"-1\" > running.running";
+bootObsidianCommand="echo \"$currentId\" > running.running; $obsidianRunCommand; echo \"-1\" > running.running;";
 
-if x-terminal-emulator -e "bash -c '${bootObsidianCommand}'" &
+if x-terminal-emulator -e "bash -c '${bootObsidianCommand} echo \"closing window\";'" &
 then
     echo "popup terminal succesfully closed!"
 else
