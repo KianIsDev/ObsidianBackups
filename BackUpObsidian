@@ -11,14 +11,17 @@ obsidianRunCommand=$(cat obsidian.path);
 
 if [[ $obsidianRunCommand == "" ]];
 then
+    
+    echo "opening new terminal"
+
     if x-terminal-emulator -e "bash -c 'echo -e \"\e[31mNo Obsidian path!\e[0m paste the executable path.\";	echo \"(On Linux) Right-click the Obsidian icon in the super-key menue > Properties > Copy the \\\"Command\\\" field.\"; read -p \"What is the executable command? \" ORC; echo \$ORC > obsidian.path;'"
     then
         # The popup window succesfully showed up!
-        echo "opening new window"
+        echo "popup terminal succesfully closed!"
 
     else
-        # No support for gnome-terminal
-        echo "unable to open new terminal"
+        # No support for opening new terminals
+        echo -e "\e[31mUnable to open new terminal\e[0m"
     fi
     
 
@@ -26,7 +29,7 @@ then
     while [$obsidianRunCommand -eq ""]
     do
         echo "waiting for user to paste the executable path..."
-        sleep 10
+        sleep 1
         obsidianRunCommand=$(cat obsidian.path)
     done
 fi
