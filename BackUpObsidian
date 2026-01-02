@@ -30,7 +30,7 @@ then
     if [[ $ableToOpenExternalTerminal -ne "1" ]];
     then
         echo "..."
-        echo -e "\e[30mNo Obsidian path!\e[0m paste the executable path.";
+        echo -e "\e[31mNo Obsidian path!\e[0m paste the executable path.";
 
         
 
@@ -78,7 +78,7 @@ do
 	git push
 	echo "Backup $dateString" >> BackupLog.running
 	runningId=$(cat running.running)
-	echo -e "\e[32mRunning SessionID\e[0m[$runningId] \e[32mExpected SessionID\e[0m[$currentId]"
+	echo -e "\e[30mRunning SessionID\e[0m[$runningId] \e[32mExpected SessionID\e[0m[$currentId]"
 
     if [[ $runningId -ne "-1" ]];
     then
