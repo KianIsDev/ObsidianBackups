@@ -53,7 +53,7 @@ currentId=$(date '+%d');
 gnome-terminal -- bash -c "echo \"$currentId\" > running.running; $obsidianRunCommand; echo \"-1\" > running.running"
 
 runningId=$(cat running.running)
-while [ $runningId -eq $currentId ]
+while [[ $runningId == $currentId ]]
 do
     echo "Backing up obsidian at: ${PWD}"
 
@@ -94,7 +94,7 @@ done
 
 
 
-if [[ $runningId -ne "-1" ]]; then
+if [[ $runningId != "-1" ]]; then
 	gnome-terminal -- bash -c "echo -e \"\e[31mDAILY SESSION EXPIRED!\e[0m Close Obsidian and re-open the backup program to start a new session\"; exec bash"
 else
 	gnome-terminal -- bash -c "echo -e \"\e[32mClosing Backup-Tool\e[0m dont wait for this window to close... Just close it already! \"; sleep 5;"
