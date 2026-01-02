@@ -57,9 +57,15 @@ currentId=$(date '+%d');
 echo "${currentId}" > running.running;
 
 bootObsidianCommand="echo \"$currentId\" > running.running; $obsidianRunCommand; echo \"-1\" > running.running";
-# x-terminal-emulator -e "bash -c '${bootObsidianCommand}'" &
 
-bash -c "${obsidianRunCommand}";
+if x-terminal-emulator -e "bash -c '${bootObsidianCommand}'" &
+then
+    echo "popup terminal succesfully closed!"
+else
+    echo -e "\e[33mUnable to open new terminal\e[0m... Obsidian will therefor be running from this terminal. Unfortunately that means no dynamic uploading. All changes will be uploadet once obsidian has closed."
+    echo -e "\e[31mREMEMBER TO CLOSE OBSIDIAN BEFORE TURNNG OFF THE PC!!!"
+    bash -c "${bootObsidianCommand}";
+fi
 
 runningId=$(cat running.running)
 while [[ $runningId == $currentId ]]
