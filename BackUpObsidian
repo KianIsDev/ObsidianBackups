@@ -10,6 +10,16 @@ obsidianRunCommand=$(cat obsidian.path);
 
 ableToOpenExternalTerminal="1";
 
+if x-terminal-emulator -e "bash -c 'echo \"...\"'"
+then
+    ableToOpenExternalTerminal="1"
+else
+    ableToOpenExternalTerminal="0"
+fi
+
+
+echo "${ableToOpenExternalTerminal}"
+
 promptLocateObsidian="echo -e \"\e[31mNo Obsidian Command Specified!\e[0m \"; echo \"\"; echo -e \"(\e[32mOn Linux\e[0m) Right-click the Obsidian icon in the super-key menue > Properties > Copy the \\\"Command\\\" field.\"; echo\"\";  echo -e \"(\e[33mOn A Virtual Machine\e[0m) Or if you dont want this tool to automatically boot up obsidian when it starts, simply write \\\"0\\\" \"; echo\"\";";
 
 if [[ $obsidianRunCommand == "" ]];
@@ -17,20 +27,15 @@ then
     
     echo "opening new terminal"
 
-    if x-terminal-emulator -e "bash -c '${promptLocateObsidian} read -p \"What is the executable command? \" ORC; echo \$ORC > obsidian.path;'"
+    if [[ $ableToOpenExternalTerminal == "1" ]];
     then
+        x-terminal-emulator -e "bash -c '${promptLocateObsidian} read -p \"What is the executable command? \" ORC; echo \$ORC > obsidian.path;'";
         # The popup window succesfully showed up!
         echo "popup terminal succesfully closed!"
 
     else
         # No support for opening new terminals
         echo -e "\e[33mUnable to open new terminal\e[0m... Continuing in this terminal"
-        ableToOpenExternalTerminal="0";
-    fi
-    
-
-    if [[ $ableToOpenExternalTerminal -ne "1" ]];
-    then
         echo ""
         echo "---------------------"
         bash -c "${promptLocateObsidian}";
@@ -50,7 +55,7 @@ then
 fi
 
 echo "";
-echo "Opening $obsidianRunCommand";
+echo "Obsidian command: $obsidianRunCommand";
 echo "";
 
 currentId=$(date '+%d');
@@ -58,14 +63,13 @@ echo "${currentId}" > running.running;
 
 bootObsidianCommand="echo \"$currentId\" > running.running; $obsidianRunCommand; echo \"-1\" > running.running;";
 
-if x-terminal-emulator -e "bash -c 'echo \"...\"'"
+
+if [[ $ableToOpenExternalTerminal == "1" ]];
 then
     x-terminal-emulator -e "bash -c '${bootObsidianCommand}'" &
-    echo "";
+    echo ""
     echo "popup terminal opened succesfully!"
 else
-    ableToOpenExternalTerminal="0";
-
     echo "---------------------"
     echo -e "\e[33mUnable to open new terminal\e[0m... Obsidian will therefor be running from this terminal. Unfortunately that means no dynamic uploading. All changes will be uploadet once obsidian has closed."
     echo ""
