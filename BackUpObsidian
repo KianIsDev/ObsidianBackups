@@ -16,7 +16,7 @@ ableToOpenExternalTerminal="1";
 
 if x-terminal-emulator -e "bash -c 'echo \"...\"'"
 then
-    ableToOpenExternalTerminal="1"
+    ableToOpenExternalTerminal="0"
 else
     ableToOpenExternalTerminal="0"
 fi
