@@ -94,18 +94,19 @@ bootObsidianCommand="echo \"$currentId\" > running.running; $obsidianRunCommand;
 if [[ $obsidianRunCommand == "0" ]];
 then
     echo "You are now in independant upload mode. This tool will still upload changes to github in the background, but it wont stop again, when obsidian is closed";
+    echo "";
+    sleep 2;
+    
+    uploadToGit;
 
     closeMe="0";
-
     while [[ $closeMe != "1" ]]
     do
-        sleep 1;
+        echo "Write \"1\" when you no longer need to back up your obsidian files:"
+        read -t 30 closeMe;
+        echo -e "\e[32mUploading to git\e[0m next upload in 30 seconds...";
         uploadToGit;
         echo "";
-        echo "say when!"
-        
-        read -t 10 closeMe;
-
     done
 
 else
