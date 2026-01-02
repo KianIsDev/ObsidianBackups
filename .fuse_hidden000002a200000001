@@ -29,7 +29,6 @@ gnome-terminal -- bash -c "echo \"$currentId\" > running.running; $obsidianRunCo
 runningId=$(cat running.running)
 while [ $runningId -eq $currentId ]
 do
-    echo "Backing up obsidian at: ${PWD}"
 	git add .
     
     currentId=$(date '+%d');
@@ -50,7 +49,7 @@ do
     sleep 1
     echo "1"
     sleep 1
-    
+    echo "Backing up obsidian at: ${PWD}"
 done
 
 
