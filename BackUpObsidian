@@ -8,6 +8,7 @@ echo "" >> obsidian.path
 
 obsidianRunCommand=$(cat obsidian.path);
 
+ableToOpenExternalTerminal="1";
 
 if [[ $obsidianRunCommand == "" ]];
 then
@@ -22,13 +23,23 @@ then
     else
         # No support for opening new terminals
         echo -e "\e[31mUnable to open new terminal\e[0m"
+        ableToOpenExternalTerminal="0";
     fi
     
 
+    if [[ $ableToOpenExternalTerminal -ne "1" ]];
+    then
+        echo "..."
+        echo -e "\e[31mNo Obsidian path!\e[0m paste the executable path.";
 
-    while [$obsidianRunCommand -eq ""]
+        read -p "What is the executable command? " ORC;
+        echo $ORC > obsidian.path;
+    fi
+
+
+    while [[ $obsidianRunCommand -eq "" ]]
     do
-        echo "waiting for user to paste the executable path..."
+        echo "reading user input..."
         sleep 1
         obsidianRunCommand=$(cat obsidian.path)
     done
