@@ -142,7 +142,7 @@ else
 
     else
         uploadToGit;
-        echo "";
+
         echo "---------------------"
         echo -e "\e[33mUnable to open new terminal\e[0m... Obsidian will therefor be running from this terminal. Unfortunately that means no dynamic uploading. All changes will be uploadet once obsidian has closed."
         echo ""
