@@ -58,7 +58,7 @@ echo "${currentId}" > running.running;
 
 bootObsidianCommand="echo \"$currentId\" > running.running; $obsidianRunCommand; echo \"-1\" > running.running";
 
-if x-terminal-emulator -e "b ash -c '${bootObsidianCommand}'" &
+if x-terminal-emulator -e "bash -c '${bootObsidianCommand}'" &
 then
     echo "popup terminal succesfully closed!"
 else
