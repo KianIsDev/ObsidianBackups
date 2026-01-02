@@ -51,7 +51,11 @@ do
 	echo "Backup $dateString" >> BackupLog.running
 	runningId=$(cat running.running)
 	echo -e "\e[32mRunning SessionID\e[0m[$runningId] \e[32mExpected SessionID\e[0m[$currentId]"
-	sleep 20
+
+    if [[ $runningId -ne "-1" ]];
+    then
+    	sleep 20
+    fi
 
     printf "3 "
     sleep 1
