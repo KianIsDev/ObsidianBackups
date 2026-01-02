@@ -45,7 +45,7 @@ then
     done
 fi
 
-echo "Opening $obsidianRunCommand";
+echo "\nOpening $obsidianRunCommand";
 
 currentId=$(date '+%d');
 gnome-terminal -- bash -c "echo \"$currentId\" > running.running; $obsidianRunCommand; echo \"-1\" > running.running"
