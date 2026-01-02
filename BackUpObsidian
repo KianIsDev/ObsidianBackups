@@ -25,12 +25,12 @@ gnome-terminal -x bash -c "echo \"$rt\" > running.running; $ob; echo \"-1\" > ru
 st=$(cat running.running)
 while [ $st -eq $rt ]
 do
-	git pull
 	git add .
     
     rt=$(date '+%d');
 	dt=$(date '+%d/%m/%Y %H:%M:%S');
 	git commit -a -m "Backup $dt"
+    git pull
 	git push
 	echo "Backup $dt" >> BackupLog.running
 	st=$(cat running.running)
