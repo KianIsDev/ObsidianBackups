@@ -135,7 +135,7 @@ else
             sleep 5
             printf "5 "
             sleep 3
-            printf "2"
+            printf "2 "
             sleep 1
             echo "1"
             sleep 1
