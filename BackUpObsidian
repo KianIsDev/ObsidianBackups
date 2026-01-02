@@ -46,9 +46,9 @@ do
 
     echo "3"
     sleep 1
-    echo "2"
+    printf "2"
     sleep 1
-    echo "1"
+    printf "1"
     sleep 1
     
 done
