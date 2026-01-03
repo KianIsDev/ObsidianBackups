@@ -1,6 +1,6 @@
 # Attention
 This is a smal project i have been working on for my own entertainment. It should be applicable by anyone who finds themselves in the same situation, but keep in mind that this is "just" a hobby project to help my study productivity.
-I cant confirm if it will work on other types of Linux machines, but i at least know that it works on mine :D
+I can't confirm if it will work on other types of Linux machines, but i at least know that it works on mine :D
 That said, i am incerdibly proud of how it turned out, and i would love any and all feedback!
 
 # Who is this for?
@@ -22,7 +22,8 @@ I made one that looks like this, for the WSL terminal:
 
 ``alias obsidiantool='cd /mnt/c/Users/Kian/Documents/ObsidianBackups/; bash BackUpObsidian'``
 
+
 **WSL and file management on Windows**
 
-Preferably you want to save the program and all the notes in the windows file system. Obsidian wont be able to open the files if you save them inside the WSL envionment.
+Preferably you want to save the program and all the notes in the Windows file system. Obsidian won't be able to open the files if you save them inside the WSL envionment.
 You should instead ``cd`` to a directory inside the ``/mnt/c/`` where the Windows filesystem resides, and clone the repository there.
