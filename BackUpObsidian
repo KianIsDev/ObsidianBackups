@@ -119,7 +119,7 @@ then
 else
     if [[ $ableToOpenExternalTerminal == "1" ]];
     then
-        x-terminal-emulator -e "bash -c '${bootObsidianCommand}'" &
+        x-terminal-emulator -e "bash -c '${bootObsidianCommand}'" & disown
         echo ""
         echo "popup terminal opened succesfully!"
         
