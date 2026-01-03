@@ -128,22 +128,22 @@ else
 
             if [[ $runningId -ne "-1" ]];
             then
+                printf "Next backup in: 25 "
+
             	sleep 15
                 printf "10 "
                 sleep 5
+                printf "5 "
+                sleep 1
+                printf "4 "
+                sleep 1
+                printf "3 "
+                sleep 1
+                printf "2 "
+                sleep 1
+                echo "1"
+                sleep 1
             fi
-
-            
-            printf "5 "
-            sleep 1
-            printf "4 "
-            sleep 1
-            printf "3 "
-            sleep 1
-            printf "2 "
-            sleep 1
-            echo "1"
-            sleep 1
             
         done
 
