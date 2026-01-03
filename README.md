@@ -17,4 +17,5 @@ There are other tools that links github and Obsidian, but the setup was somewhat
 # Helpful tips
 Create an [alias](https://askubuntu.com/questions/17536/how-do-i-create-a-permanent-bash-alias) to quickly run the program from a terminal.
 I made one that looks like this, for the WSL terminal:
-``alias obsidiantool='cd /mnt/c/Users/Kian/Documents/ObsidianBackups/; bash BackUpObsidian'´´
+
+``alias obsidiantool='cd /mnt/c/Users/Kian/Documents/ObsidianBackups/; bash BackUpObsidian'``
