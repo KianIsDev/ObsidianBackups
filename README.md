@@ -1,5 +1,5 @@
 # Attention
-This is a smal project i have been working on for my own entertainment. It should be applicable by anyone who finds themselves in the same situation, but keep in mind that this is "just" a hobby project to help my study productivity.
+This is a smal project i have been working on for my own entertainment. It *should* be applicable by anyone who finds themselves in a similar situation, but keep in mind that this is "just" a hobby project to help my study productivity.
 I can't confirm if it will work on other types of Linux machines, but i at least know that it works on mine :D
 That said, i am incerdibly proud of how it turned out, and i would love any and all feedback!
 
@@ -13,6 +13,17 @@ I recently switched to Linux Mint on my home computer, while still using Windows
 The proplem then became, that i didnt have a reliable way of syncing my Obsidian notes between the two computers. Erarlier i had used Google Drive to automatically upload and download the notes, but this solution works poorly on a linux machine.
 So thats why i went with github.
 There are other tools that links github and Obsidian, but the setup was somewhat of a hassle, and it didnt seem to do exactly the things i wanted it to, so i made my own :D
+
+# Getting started
+You should consider making a **private** copy of this repository and host it on your own account. While forking the project does come with some benefits, it sadly can't (to my knowledge) hide the private notes that this project is aimed at backing up.
+So for your own safety, i recommend making your own **private** copy of this project.
+
+1) ``git clone`` this repository.
+2) ``cd`` into the repository.
+3) Go to GitHub and make a new **private** repository.
+4) ``git push --mirror`` into your new repository.
+5) now you should be able to see all the same files inside your own repository.
+
 
 # Helpful tips
 ## Use an Alias
