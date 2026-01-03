@@ -26,5 +26,5 @@ I made one that looks like this, for the WSL terminal:
 ## WSL and file management on Windows
 
 Preferably you want to save the program and all the notes in the Windows file system. Obsidian won't be able to open the files if you save them inside the WSL envionment.
-You should instead ``cd`` to a directory inside the ``/mnt/c/`` where the Windows filesystem resides, and clone the repository there.
+You should instead ``cd`` to a directory inside the ``/mnt/c/`` where the Windows filesystem resides, and clone the git repository there.
 (Note that this is because i have installed the Windows version of the **Obsidian** application. It will behave differently, if you install it through WSL itself)
