@@ -43,6 +43,10 @@ When you are ready to create your own vaults, just add them to the **Vaults** di
 
 
 # Helpful tips
+## Dont mind the debugging
+You can run the script without opening it in a terminal. Then you dont have to look at all the git debug messages. (This does not work on WSL).
+On linux the script will open popup terminals with relevant infirmation, so you still know when something important happens.
+
 ## Use an Alias
 
 Create an [alias](https://askubuntu.com/questions/17536/how-do-i-create-a-permanent-bash-alias) to quickly run the program from a terminal.
