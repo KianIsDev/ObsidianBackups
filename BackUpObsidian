@@ -4,7 +4,12 @@ echo ""
 echo "---------------------"
 echo "WELCOME"
 
-echo "" >> obsidian.path
+
+if [[ ! -f obsidian.path ]];
+then
+    echo "" > obsidian.path
+fi
+
 
 obsidianRunCommand=$(cat obsidian.path);
 
