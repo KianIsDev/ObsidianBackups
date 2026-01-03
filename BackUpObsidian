@@ -2,8 +2,9 @@
 
 echo ""
 echo "---------------------"
-echo "WELCOME"
-
+echo "WELCOME TO THE OBSIDIAN BACKUP TOOL!"
+echo "---------------------"
+echo ""
 
 if [[ ! -f obsidian.path ]];
 then
@@ -18,18 +19,17 @@ ableToOpenExternalTerminal="1";
 if x-terminal-emulator -e "bash -c 'echo \"...\"'"
 then
     ableToOpenExternalTerminal="1"
-    echo "Fun terminals!"
+    echo "External terminals supported!"
 else
-    echo "Limited terminal functionality"
+    echo "Limited terminal functionality detected."
     ableToOpenExternalTerminal="0"
 fi
 
 
-echo ""
-
 promptLocateObsidian="echo -e \"\e[31mNo Obsidian Command Specified!\e[0m \"; echo \"\"; echo -e \"(\e[32mOn Linux\e[0m) Right-click the Obsidian icon in the super-key menue > Properties > Copy the \\\"\e[94mCommand\e[0m\\\" field.\"; echo \"\"; echo -e \"(\e[32mOn A Windows Virtual Machine\e[0m) Search up \\\"Obsidian\\\" in the windows menu > \\\"Open file location\\\" x2\"; echo \"The path should be something like: \\\"C:/Users/Name/AppData/Local/Programs/Obsidian/Obsidian.exe\\\"\"; echo \"Now replace \\\"C:\\\" with \\\"cmd.exe mnt/c\\\"\"; echo -e \"Example: \\\"\e[94mcmd.exe mnt/c/Users/Name/AppData/Local/Programs/Obsidian/Obsidian.exe\e[0m\\\" (You should be able to run this command straight in a terminal! )\"; echo\"\"; echo -e \"(\e[33mHint\e[0m) If you dont want this tool to automatically boot up obsidian when it starts, simply write \\\"\e[94m0\e[0m\\\" \"; echo\"\";";
 
 uploadToGit() {
+    echo ""
     echo "Backing up obsidian at: ${PWD}"
 
     echo "(ADD)"
@@ -62,7 +62,7 @@ then
         x-terminal-emulator -e "bash -c '${promptLocateObsidian} read -p \"What is the executable command? \" ORC; echo \$ORC > obsidian.path;'";
         # The popup window succesfully showed up!
         echo "popup terminal succesfully closed!"
-
+        
     else
         # No support for opening new terminals
         echo -e "\e[33mUnable to open new terminal\e[0m... Continuing in this terminal"
@@ -74,6 +74,8 @@ then
         read -p "What is the executable command? " ORC;
         echo $ORC > obsidian.path;
     fi
+    
+    echo ""
 
 
     while [[ $obsidianRunCommand == "" ]]
