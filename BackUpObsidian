@@ -191,7 +191,8 @@ else
     fi
 fi
 
-read -p "Press [enter] to close..."
-
 echo "-1" > running.running
+
+echo "Press [enter] to close..."
+read -t 120;
 
