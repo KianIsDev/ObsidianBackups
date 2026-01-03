@@ -4,7 +4,7 @@ I can't confirm if it will work on other types of Linux machines, but i at least
 That said, i am incerdibly proud of how it turned out, and i would love any and all feedback!
 
 # Who is this for?
-- You use **Obsidian**
+- You use **Obsidian**.
 - You use an Ubuntu-based **Linux** machine and a seperate Windows machine with **WSL** (Windows Subsystem for Linux) on it.
   - *Alternatively* two(or more) Ubuntu-based Linux machines that you want to sync between.
 
