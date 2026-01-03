@@ -36,7 +36,10 @@ On your first launch, you will be greeted with a prompt, asking you to provide t
 simply follow the instructions for either Linux or WSL.
 This information will be stored in a file called **obsidian.path**. If you want to change this command in the future, simply edit the file or delete it and you will be prompted once you run the script again.
 
+## Create your first Vault
+You will find a directory called **Vaults**. This is where all your Obsidian vaults should be created/pasted. To demonstrate exactly what i mean, please notice the **Test** vault already created inside the directory. Feel free to play around with it as you want.
 
+When you are ready to create your own vaults, just add them to the **Vaults** directory.
 
 
 # Helpful tips
