@@ -15,7 +15,14 @@ So thats why i went with github.
 There are other tools that links github and Obsidian, but the setup was somewhat of a hassle, and it didnt seem to do exactly the things i wanted it to, so i made my own :D
 
 # Helpful tips
+**Use an Alias**
+
 Create an [alias](https://askubuntu.com/questions/17536/how-do-i-create-a-permanent-bash-alias) to quickly run the program from a terminal.
 I made one that looks like this, for the WSL terminal:
 
 ``alias obsidiantool='cd /mnt/c/Users/Kian/Documents/ObsidianBackups/; bash BackUpObsidian'``
+
+**WSL and file management on Windows**
+
+Preferably you want to save the program and all the notes in the windows file system. Obsidian wont be able to open the files if you save them inside the WSL envionment.
+You should instead ``cd`` to a directory inside the ``/mnt/c/`` where the Windows filesystem resides, and clone the repository there.
