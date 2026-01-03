@@ -129,12 +129,17 @@ else
             if [[ $runningId -ne "-1" ]];
             then
             	sleep 15
+                printf "10 "
+                sleep 5
             fi
 
-            printf "10 "
-            sleep 5
+            
             printf "5 "
-            sleep 3
+            sleep 1
+            printf "4 "
+            sleep 1
+            printf "3 "
+            sleep 1
             printf "2 "
             sleep 1
             echo "1"
