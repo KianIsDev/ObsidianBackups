@@ -4,10 +4,6 @@ echo ""
 echo "---------------------"
 echo "WELCOME"
 
-# gnome-terminal
-# /usr/bin/flatpak run --branch=stable --arch=x86_64 --command=obsidian.sh --file-forwarding md.obsidian.Obsidian @@u %U @@
-# /usr/bin/flatpak run --branch=stable --arch=x86_64 --command=obsidian.sh --file-forwarding md.obsidian.Obsidian @@u %U @@
-# /usr/bin/flatpak run md.obsidian.Obsidian
 echo "" >> obsidian.path
 
 obsidianRunCommand=$(cat obsidian.path);
