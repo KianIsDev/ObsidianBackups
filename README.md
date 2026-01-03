@@ -18,11 +18,25 @@ There are other tools that links github and Obsidian, but the setup was somewhat
 You should consider making a **private** copy of this repository and host it on your own account. While forking the project does come with some benefits, it sadly can't (to my knowledge) hide the private notes that this project is aimed at backing up.
 So for your own safety, i recommend making your own **private** copy of this project.
 
+## Make a private copy
 1) ``git clone`` this repository.
 2) ``cd`` into the repository.
-3) Go to GitHub and make a new **private** repository.
+3) Go to [GitHub](https://github.com/new) and make a new **private** repository.
 4) ``git push --mirror`` into your new repository.
-5) now you should be able to see all the same files inside your own repository.
+5) Now you should be able to see all the same files inside your own repository.
+6) Clone this new repository instead of mine, on your various machines.
+
+## Run the script
+The file named **BackUpObsidian** is the bash script that takes care of all the syncing to GitHub. It also has the *optional* capability of opening Obsidian for you. So instead of opening obsidian manually, just run this script and you should be taken straight to Obsidian. This also has the added benefit of terminating the backup process once you close out of Obsidian!
+
+Simply *double-click* the script in a file manager, or use ``bash BackUpObsidian`` inside the terminal.
+
+## First launch
+On your first launch, you will be greeted with a prompt, asking you to provide the command that opens Obsidian.
+simply follow the instructions for either Linux or WSL.
+This information will be stored in a file called **obsidian.path**. If you want to change this command in the future, simply edit the file or delete it and you will be prompted once you run the script again.
+
+
 
 
 # Helpful tips
