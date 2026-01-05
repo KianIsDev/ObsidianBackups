@@ -1,5 +1,5 @@
 # Attention
-This is a smal project i have been working on for my own entertainment. It *should* be applicable by anyone who finds themselves in a similar situation, but keep in mind that this is "just" a hobby project to help my study productivity.
+This is a small project i have been working on for my own entertainment. It *should* be applicable by anyone who finds themselves in a similar situation, but keep in mind that this is "just" a hobby project to help my study productivity.
 I can't confirm if it will work on other types of Linux machines, but i at least know that it works on mine :D
 That said, i am incerdibly proud of how it turned out, and i would love any and all feedback!
 
