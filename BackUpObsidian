@@ -122,34 +122,37 @@ else
         x-terminal-emulator -e "bash -c 'echo -e \"\e[35mObsidian\e[0m is running in this terminal. \e[31mPlease dont close this window.\e[0m\"; echo \"\"; ${bootObsidianCommand}'" &
         echo ""
         echo "popup terminal opened succesfully!"
-        
+
+        uploadToGit;
         runningId=$(cat running.running)
+        sleepTime15Sec=120
         while [[ $runningId == $currentId ]]
         do
-            uploadToGit;
-	        runningId=$(cat running.running)
+
+            echo ""
+            for i in $(seq 1 $sleepTime15Sec);
+            do
+                leftSec=$(( $sleepTime15Sec * 15 - (( $i - 1 ) * 15) ));
+
+                if (( leftSec % 60 && leftSec < 180)); then
+                    echo -n -e "Next backup in: ${leftSec} seconds................\r"
+                else
+                    leftMin=$(( $leftSec / 60 ));
+                    echo -n -e "Next backup in: ${leftMin} minutes................\r"
+                fi
+
+                sleep 15;
+                runningId=$(cat running.running)
+                if [[ $runningId == "-1" ]];
+                then
+                    break;
+                fi
+            done
+
             currentId=$(date '+%d');
 	        echo -e "\e[32mRunning SessionID\e[0m[$runningId] \e[32mExpected SessionID\e[0m[$currentId]"
+            uploadToGit;
 
-            if [[ $runningId -ne "-1" ]];
-            then
-                printf "Next backup in: 25 "
-
-            	sleep 15
-                printf "10 "
-                sleep 5
-                printf "5 "
-                sleep 1
-                printf "4 "
-                sleep 1
-                printf "3 "
-                sleep 1
-                printf "2 "
-                sleep 1
-                echo "1"
-                sleep 1
-            fi
-            
         done
 
     else
@@ -195,4 +198,3 @@ echo "-1" > running.running
 
 echo "Press [enter] to close..."
 read -t 120;
-
