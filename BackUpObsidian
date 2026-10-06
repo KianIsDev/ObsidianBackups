@@ -25,30 +25,41 @@ else
     ableToOpenExternalTerminal="0"
 fi
 
-
-promptLocateObsidian="echo -e \"\e[31mNo Obsidian Command Specified!\e[0m \"; echo \"\"; echo -e \"(\e[32mOn Linux\e[0m) Right-click the Obsidian icon in the super-key menue > Properties > Copy the \\\"\e[94mCommand\e[0m\\\" field.\"; echo \"\"; echo -e \"(\e[32mOn A Windows Virtual Machine\e[0m) Search up \\\"Obsidian\\\" in the windows menu > \\\"Open file location\\\" x2\"; echo \"The path should be something like: \\\"C:/Users/Name/AppData/Local/Programs/Obsidian/Obsidian.exe\\\"\"; echo \"Now replace \\\"C:\\\" with \\\"cmd.exe mnt/c\\\"\"; echo -e \"Example: \\\"\e[94mcmd.exe mnt/c/Users/Name/AppData/Local/Programs/Obsidian/Obsidian.exe\e[0m\\\" (You should be able to run this command straight in a terminal! )\"; echo\"\"; echo -e \"(\e[33mHint\e[0m) If you dont want this tool to automatically boot up obsidian when it starts, simply write \\\"\e[94m0\e[0m\\\" \"; echo\"\";";
+promptLocateObsidian="echo -e 
+\"\e[31mNo Obsidian Command Specified!\e[0m \";
+ echo \"\";
+ echo -e \"(\e[32mOn Linux\e[0m) Right-click the Obsidian icon in the super-key menue > Properties > Copy the \\\"\e[94mCommand\e[0m\\\" field.\";
+ echo \"\";
+ echo -e \"(\e[32mOn A Windows Virtual Machine\e[0m) Search up \\\"Obsidian\\\" in the windows menu > \\\"Open file location\\\" x2\";
+ echo \"The path should be something like: \\\"C:/Users/Name/AppData/Local/Programs/Obsidian/Obsidian.exe\\\"\";
+ echo \"Now replace \\\"C:\\\" with \\\"cmd.exe mnt/c\\\"\";
+ echo -e \"Example: \\\"\e[94mcmd.exe mnt/c/Users/Name/AppData/Local/Programs/Obsidian/Obsidian.exe\e[0m\\\" (You should be able to run this command straight in a terminal! )\";
+ echo\"\";
+ echo -e \"(\e[33mHint\e[0m) If you dont want this tool to automatically boot up obsidian when it starts, simply write \\\"\e[94m0\e[0m\\\" \";
+ echo\"\"
+ ;";
 
 uploadToGit() {
-    echo ""
-    echo "Backing up obsidian at: ${PWD}"
+    echo "";
+    echo "Backing up obsidian at: ${PWD}";
 
-    echo "(ADD)"
+    echo "(ADD)";
 
-	git add .
+	git add .;
     
-    echo "(COMMIT)"
+    echo "(COMMIT)";
 
 	dateString=$(date '+%d/%m/%Y %H:%M:%S');
-	git commit -a -m "Backup $dateString"
+	git commit -a -m "Backup $dateString";
 
-    echo "(PULL)"
+    echo "(PULL)";
 
-    git pull
+    git pull;
 
-    echo "(PUSH)"
+    echo "(PUSH)";
 
-	git push
-	echo "Backup $dateString" >> BackupLog.running
+	git push;
+	echo "Backup $dateString" >> BackupLog.running;
 }
 
 
@@ -71,8 +82,8 @@ then
         bash -c "${promptLocateObsidian}";
         echo "---------------------"
 
-        read -p "What is the executable command? " ORC;
-        echo $ORC > obsidian.path;
+        read -r -p "What is the executable command? " ORC;
+        echo "$ORC" > obsidian.path;
     fi
     
     echo ""
@@ -108,7 +119,7 @@ then
     while [[ $closeMe != "1" ]]
     do
         echo "Write \"1\" when you no longer need to back up your obsidian files:"
-        read -t 30 closeMe;
+        read -r -t 30 closeMe;
         echo "";
         echo -e "\e[32mUploading to github\e[0m next upload in 30 seconds...";
         uploadToGit;
@@ -126,7 +137,7 @@ else
         uploadToGit;
         runningId=$(cat running.running)
         sleepTime15Sec=120
-        while [[ $runningId == $currentId ]]
+        while [[ $runningId == "$currentId" ]]
         do
 
             echo ""
@@ -158,18 +169,18 @@ else
     else
         uploadToGit;
         echo "";
-        echo "---------------------"
-        echo -e "\e[33mUnable to open new terminal\e[0m... Obsidian will therefor be running from this terminal. Unfortunately that means no dynamic uploading. All changes will be uploadet once obsidian has closed."
-        echo ""
-        echo -e "\e[31mREMEMBER TO CLOSE OBSIDIAN BEFORE TURNNG OFF THE PC!!!\e[0m"
-        echo "---------------------"
+        echo "---------------------";
+        echo -e "\e[33mUnable to open new terminal\e[0m... Obsidian will therefor be running from this terminal. Unfortunately that means no dynamic uploading. All changes will be uploadet once obsidian has closed.";
+        echo "";
+        echo -e "\e[31mREMEMBER TO CLOSE OBSIDIAN BEFORE TURNNG OFF THE PC!!!\e[0m";
+        echo "---------------------";
         
-        sleep 2;        
-
+        sleep 2;
+        
         bash -c "${bootObsidianCommand}";
         uploadToGit;
         runningId="-1";
-        echo ""
+        echo "";
     fi
 fi
 
@@ -179,8 +190,8 @@ if [[ $runningId != "-1" ]]; then
     then
         x-terminal-emulator -e "bash -c 'echo -e \"\e[31mDAILY SESSION EXPIRED!\e[0m Close Obsidian and re-open the backup program to start a new session\"; exec bash'" &
     else
-        echo ""
-        echo "---------------------"
+        echo "";
+        echo "---------------------";
         echo -e "\e[31mDAILY SESSION EXPIRED!\e[0m Close Obsidian and re-open the backup program to start a new session";
 
     fi
@@ -190,11 +201,11 @@ else
     then
         x-terminal-emulator -e "bash -c 'echo -e \"\e[32mClosing Backup-Tool\e[0m dont wait for this window to close... Just close it already! \"; read -t 5;'" &
     else
-        echo -e "\e[32mClosing Backup-Tool\e[0m"
+        echo -e "\e[32mClosing Backup-Tool\e[0m";
     fi
 fi
 
 echo "-1" > running.running
 
-echo "Press [enter] to close..."
-read -t 120;
+echo "Press [enter] to close...";
+read -r -t 120;
